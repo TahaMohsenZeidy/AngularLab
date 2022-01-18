@@ -1,0 +1,106 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row class d-flex justify-content-center">
+      <div class="col-md-11">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">New/Edit Profile</h4>
+            <p class="card-category">Add/Edit profile</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="nom" placeholder="First Name" />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="prenom" placeholder="Last Name" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="date" type="date" placeholder="Birth Date" />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="number" formControlName="cin" placeholder="CIN" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type="email" formControlName="email" placeholder="Email" />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="password" type="password" placeholder="password" />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div class="col-md-6 form-inline">
+                  <label>Resume</label>
+                  <input id="resume" matInput type="file" (ngModelChange)="uploadedResume()" formControlName="cv"/>
+                </div>
+                <div class="col-md-6">
+                  <label>Photo</label>
+                  <input id="photo" matInput type="file" (ngModelChange)="uploadedPhoto()" formControlName="photoURL"/>
+                </div> -->
+                <div class="col-md-6">
+                <mat-form-field>
+                  <div>
+                    <label>Resume</label>
+                      <input matInput [value]="fileName" />
+                    <input
+                      type="file"
+                      id="fileInput"
+                      (change)="selectResume($event)"
+                      name="fileInput"
+                    />
+                  </div>
+                </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                <mat-form-field>
+                  <div>
+                    <label>Photo</label>
+                      <input matInput [value]="fileName1" />
+                    <input
+                      type="file"
+                      id="fileInput1"
+                      (change)="selectPhoto($event)"
+                      name="fileInput1"
+                    />
+                  </div>
+                </mat-form-field>
+                </div>
+
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Select Type</label>
+                  <select class="custom-select" (change)="changeCity($event)" formControlName="type">
+                    <option value="" disabled>Choose </option>
+                    <option *ngFor="let type of Type" [ngValue]="type">{{type}}</option>
+                 </select>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update/New Profile</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

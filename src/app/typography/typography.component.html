@@ -1,0 +1,47 @@
+<div class="main-content">
+    <button mat-raised-button color="" routerLink="" class="addButton" style="margin: 1rem"> Create New Item
+    </button>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Tools Table</h4>
+                <p class="card-category">Here We List All The Tools Created In Our Lab</p>
+            </div>
+            <div class="card-body">
+                <div id="typography" *ngFor="let item of toolReceivedByService">
+                    <div class="alert" style="background-color:darkgrey; color:white;">
+                        <span style="text-align:center;" class="row">
+                            <h2> {{item.id}} </h2>
+                            <h4>{{item.date}}</h4> &nbsp; &nbsp; <a href="{{item.source}}">{{item.source}}</a>
+                            <button mat-button type="button" class="close"
+                                class="btn btn-primary btn-link btn-sm btn-just-icon" data-dismiss="alert"
+                                aria-label="Close">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button mat-button type="button" class="close"
+                                class="btn btn-danger btn-link btn-sm btn-just-icon" data-dismiss="alert"
+                                aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-body">
+            <div class="iframe-container d-none d-lg-block">
+                <iframe src="http://www.enis.rnu.tn">
+                    <p>Your browser does not support iframes.</p>
+                </iframe>
+            </div>
+            <div class="col-md-12 d-none d-sm-block d-md-block d-lg-none d-block d-sm-none text-center ml-auto mr-auto">
+                <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile
+                    and Tablets please visit the icons on their original page on Google. Check the
+                    <a href="https://fonts.google.com/icons" target="_blank">Material Icons</a>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
