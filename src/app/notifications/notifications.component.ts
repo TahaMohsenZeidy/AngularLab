@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicationsService } from 'services/publications.service';
 declare var $: any;
 @Component({
   selector: 'app-notifications',
@@ -7,7 +8,12 @@ declare var $: any;
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
+  pubSource: Publication[] = [];
+  pubReceivedByService: any;
+
+  constructor(private publicationService: PublicationsService) { }
+
+
   showNotification(from, align){
       const type = ['','info','success','warning','danger'];
 
@@ -37,6 +43,10 @@ export class NotificationsComponent implements OnInit {
       });
   }
   ngOnInit() {
+    this.publicationService.getAllPubs().then((tool) => {
+      console.log('Found Tools');
+      this.pubReceivedByService = tool;
+    });
   }
 
 }
